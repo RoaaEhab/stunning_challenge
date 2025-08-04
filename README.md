@@ -91,7 +91,6 @@ A full-stack web application built with **Next.js**, **NestJS**, and **MongoDB A
 
 - Fixed `.env` loading in NestJS by specifying `path.resolve` in `main.ts`.
 - Resolved MongoDB authentication errors by updating credentials in `.env`.
-- Handled TypeScript errors (e.g., missing `Section` exports) by creating a shared types file.
 
 ---
 
@@ -117,8 +116,5 @@ A full-stack web application built with **Next.js**, **NestJS**, and **MongoDB A
 
 - Built using [GitHub Copilot](https://github.com/features/copilot) for code generation and debugging, which assisted in resolving issues like `.env` loading and MongoDB Atlas authentication errors.
 
----
 
-## License
 
-MIT
