@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Stunning Technical Challenge
 
-## Getting Started
+A full-stack web application built with **Next.js**, **NestJS**, and **MongoDB Atlas**. Users can submit a website idea, generate three sections (Hero, About, Contact), and store them in MongoDB Atlas. The app demonstrates modern full-stack development with type safety, error handling, and a clean UI.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Structure
 
-Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
+- **frontend/**: Next.js app with a form (`IdeaForm.tsx`) for submitting website ideas and a preview (`SectionsPreview.tsx`) for displaying generated sections.
+- **backend/**: NestJS API that generates dummy sections and stores them in MongoDB Atlas using Mongoose.
+- **.gitignore**: Excludes `node_modules`, `.env`, and build outputs.
+- **README.md**: Project documentation and setup instructions.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Setup Instructions
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- [Node.js](https://nodejs.org/)
+- [MongoDB Atlas](https://www.mongodb.com/atlas/database) account
+- [NestJS CLI](https://docs.nestjs.com/cli/overview):  
+  ```sh
+  npm install -g @nestjs/cli
+  ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Backend Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Navigate to the backend directory:
+   ```sh
+   cd backend
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Create a `.env` file in `backend/` with:
+   ```
+   MONGO_URI=mongodb+srv://<username>:<password>@stunningcluster.wxd3j0m.mongodb.net/stunning?retryWrites=true&w=majority
+   ```
+   Replace `<username>` and `<password>` with your MongoDB Atlas credentials.
+4. Start the backend server:
+   ```sh
+   npm run start:dev
+   ```
+   The API runs at [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+### Frontend Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Navigate to the frontend directory:
+   ```sh
+   cd frontend
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the frontend:
+   ```sh
+   npm run dev
+   ```
+   The app runs at [http://localhost:3001](http://localhost:3001).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Usage
+
+1. Open [http://localhost:3001](http://localhost:3001) in your browser.
+2. Enter a website idea (e.g., "Landing page for bakery") in the form.
+3. Click **Generate Sections** to create and display three sections: Hero, About, and Contact.
+4. The app includes loading states and error handling for empty inputs or API failures.
+
+---
+
+## Technologies Used
+
+- **Frontend**: Next.js, TypeScript, Tailwind CSS, Axios
+- **Backend**: NestJS, MongoDB Atlas, Mongoose
+
+---
+
+## Key Decisions
+
+- Chose MongoDB Atlas for easy setup and scalability.
+- Used a shared `Section` interface for type safety across frontend components.
+- Stored `websiteIdea` in each section for filtering in MongoDB.
+
+---
+
+## Challenges Faced
+
+- Fixed `.env` loading in NestJS by specifying `path.resolve` in `main.ts`.
+- Resolved MongoDB authentication errors by updating credentials in `.env`.
+- Handled TypeScript errors (e.g., missing `Section` exports) by creating a shared types file.
+
+---
+
+## Future Improvements
+
+- Add user authentication for secure access.
+- Enhance frontend UI with animations and responsive layouts.
+- Implement pagination for large section lists.
+
+---
+
+## Testing
+
+
+
+### Frontend Test
+
+- Open [http://localhost:3001](http://localhost:3001), submit a website idea, and verify that the sections render.
+
+---
+
+## Notes
+
+- Built using [GitHub Copilot](https://github.com/features/copilot) for code generation and debugging, which assisted in resolving issues like `.env` loading and MongoDB Atlas authentication errors.
+
+---
+
+## License
+
+MIT
